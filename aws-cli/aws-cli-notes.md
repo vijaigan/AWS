@@ -1,8 +1,11 @@
 # AWS Cli Notes 
 
+### List Instance Details
+``` 
+$ aws ec2 describe-instances --query 'Reservations[*].Instances[*].[Tags[?Key==`Name`].Va
+lue,InstanceId,InstanceType,State.Name,NetworkInterfaces[0].PrivateIpAddress,NetworkInterfaces[0].Association.PublicIp]' --output=text  | sed '$!N;s/\n/ /'
+```
 
-
-### List Instance Details 
 ~~~~ 
 $ aws ec2 describe-instances --query 'Reservations[*].Instances[*].[Tags[?Key==`Name`].Value,InstanceId,InstanceType,State.Name,NetworkInterfaces[0].PrivateIpAddress,NetworkInterfaces[0].Association.PublicIp]' --output=text  | sed '$!N;s/\n/ /'  
 i-04e222xxxxx	t3.micro	running	10.211.0.247	xx.xxx.xxx.241 Server1
@@ -12,6 +15,12 @@ i-06e930xxxxx	t3.medium	running	10.211.3.133	xx.xxx.xxx.121 Server4
 ~~~~  
 
 ### List All running Instances volumes , size, snapshot 
+``` 
+$ for i in `aws ec2 describe-instances --filter Name=instance-state-name,Values=running --query 'Reservations[*].Instances[*].[InstanceId]' --output=text` ;  
+do  
+aws ec2 describe-volumes --filter Name=attachment.instance-id,Values=$i --query "Volumes[*].[Attachments[0].InstanceId,VolumeId,Attachments[0].Device,Size,SnapshotId]" --output=table 
+done
+``` 
 ~~~~ 
 for i in `aws ec2 describe-instances --filter Name=instance-state-name,Values=running --query 'Reservations[*].Instances[*].[InstanceId]' --output=text` ;  
 do  
