@@ -2,8 +2,7 @@
 
 ### List Instance Details
 ``` 
-$ aws ec2 describe-instances --query 'Reservations[*].Instances[*].[Tags[?Key==`Name`].Va
-lue,InstanceId,InstanceType,State.Name,NetworkInterfaces[0].PrivateIpAddress,NetworkInterfaces[0].Association.PublicIp]' --output=text  | sed '$!N;s/\n/ /'
+$ aws ec2 describe-instances --query 'Reservations[*].Instances[*].[Tags[?Key==`Name`].Value,InstanceId,InstanceType,State.Name,NetworkInterfaces[0].PrivateIpAddress,NetworkInterfaces[0].Association.PublicIp]' --output=text  | sed '$!N;s/\n/ /'
 ```
 
 ~~~~ 
