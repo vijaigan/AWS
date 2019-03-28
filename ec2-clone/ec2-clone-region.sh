@@ -4,6 +4,9 @@
 # Script for cloning AWS instances from one REGION to Other REGION 
 # You need to have AWS cli setup for your account
 # please refer to https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html for setting up aws cli 
+# Please update SRC_REGION , DST_REGION and INSTANCE_IDS (space between instances ) 
+# This script will create latest AMI Image without rebooting the server and Put's appropriate 
+# tags with Date and Name on the AMI Image on Destination Region. 
 
 DATE=`date +%F`
 #Source REGION 
