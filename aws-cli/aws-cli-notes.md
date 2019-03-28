@@ -10,3 +10,19 @@ i-0c24c7xxxxx	t3.micro	running	10.211.59.29	xx.xxx.xxx.149 Server2
 i-0d972dxxxxx	t3.micro	running	10.211.61.189	xx.xxx.xxx.243 Server3
 i-06e930xxxxx	t3.medium	running	10.211.3.133	xx.xxx.xxx.121 Server4
 ~~~~  
+
+### List All running Instances volumes , size, snapshot 
+`
+for i in `aws ec2 describe-instances --filter Name=instance-state-name,Values=running --query 'Reservations[*].Instances[*].[InstanceId]' --output=text` ;  
+do  
+aws ec2 describe-volumes --filter Name=attachment.instance-id,Values=$i --query "Volumes[*].[Attachments[0].InstanceId,VolumeId,Attachments[0].Device,Size,SnapshotId]" --output=table 
+done
+-----------------------------------------------------------------------------------------------
+|                                       DescribeVolumes                                       |
++---------------------+-------------------------+------------+-----+--------------------------+
+|  i-0e73cxxxxxxxxxxxx|  vol-05f76axxxxxxxxxxx  |  /dev/sda1 |  20 |  snap-0e1xxxxxxxxxxx     |
+|  i-0e73cxxxxxxxxxxxx|  vol-0a0107xxxxxxxxxxx  |  /dev/sdf  |  50 |  snap-013xxxxxxxxxxx     |
+|  i-0e73cxxxxxxxxxxxx|  vol-0bbe5bxxxxxxxxxxx  |  /dev/sdg  |  16 |  snap-0ddxxxxxxxxxxx     |
++---------------------+-------------------------+------------+-----+--------------------------+
+
+` 
