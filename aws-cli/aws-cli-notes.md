@@ -55,7 +55,7 @@ aws rds describe-db-instances --query 'DBInstances[*].{DBNAME:DBName,ARN:DBInsta
 
 ### Attaching a Volume 
 ~~~~ 
-$ aws ec2 attach-volume --volume-id vol-011432exxxxxx --instance-id i-0baf904a8fcfd8223 --device /dev/sdb 
+$ aws ec2 attach-volume --volume-id vol-011432exxxxxx --instance-id i-0baf904axxxxxxxx --device /dev/sdb 
 -------------------------------------------------------------------------------------------------------
 |                                            AttachVolume                                             |
 +---------------------------+-----------+----------------------+------------+-------------------------+
