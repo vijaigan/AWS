@@ -9,11 +9,11 @@
 
 ### AWS and nix  Audit and Pentest tools  
 
-- [Security Monkey from Netflix] (https://github.com/Netflix/security_monkey) 
-- [Prowler] (https://github.com/toniblyx/prowler) 
-- [Cloud Security Suite github ] (https://github.com/SecurityFTW/cs-suite) 
-- [Cloud Security Suite Home Page] (https://securityftw.github.io/)  
-- [lynis] (https://cisofy.com/documentation/lynis/) 
-- [lynis github] (https://github.com/CISOfy/lynis) 
+- [Security Monkey from Netflix](https://github.com/Netflix/security_monkey) 
+- [Prowler](https://github.com/toniblyx/prowler) 
+- [Cloud Security Suite github ](https://github.com/SecurityFTW/cs-suite) 
+- [Cloud Security Suite Home Page](https://securityftw.github.io/) 
+- [lynis - Lynis is a free and open source security and auditing tool  ](https://cisofy.com/documentation/lynis/) 
+- [lynis github](https://github.com/CISOfy/lynis) 
 - https://github.com/RhinoSecurityLabs/Security-Research/tree/master/tools/aws-pentest-tools 
 
