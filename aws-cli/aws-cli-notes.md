@@ -188,5 +188,36 @@ $ aws ec2 terminate-instances  --instance-ids i-040e1f39axxxxxxx
 
 ~~~~ 
 
+### AWS IAM MFA 
 
+~~~shell
+
+https://typicalrunt.me/2018/05/26/enabling-an-aws-iam-mfa-via-cli/ 
+
+aws iam create-virtual-mfa-device \
+  --virtual-mfa-device-name typicalrunt \
+  --outfile $HOME/QRCode.png \
+  --bootstrap-method QRCodePNG \
+  --region ca-central-1
+
+aws iam create-virtual-mfa-device --virtual-mfa-device-name BobsMFADevice --outfile C:/QRCode.png --bootstrap-method QRCodePNG
+
+aws iam create-virtual-mfa-device --virtual-mfa-device-name VijaiMFADevice --outfile mfa-out --bootstrap-method Base32StringSeed
+
+vijai@vijai-lx:~/AWS/Clients/vijaiinXXXX$ aws iam create-virtual-mfa-device --virtual-mfa-device-name VijaiMFADevice --outfile mfa-out --bootstrap-method Base32StringSeed 
+VIRTUALMFADEVICE    arn:aws:iam::63XXXXX:mfa/VijaiMFADevice
+vijai@vijai-lx:~/AWS/Clients/vijaiinXXXX$
+
+aws iam enable-mfa-device --user-name Bob --serial-number arn:aws:iam::210987654321:mfa/BobsMFADevice --authentication-code-1 123456 --authentication-code-2 789012
+
+vijai@vijai-lx:~/AWS/Clients/vijaiinXXXX$ aws iam list-users 
+USERS   arn:aws:iam::6365XXXXXXX:user/vijai@inXXXX    2019-04-09T06:04:09Z    /   AIDAZINYX7YVEUAM7O62O   vijai@inXXXX
+vijai@vijai-lx:~/AWS/Clients/vijaiinXXXX$ 
+
+
+
+vijai@vijai-lx:~/AWS/Clients/vijaiinXXXX$ aws iam enable-mfa-device --user-name vijai@inXXXX --serial-number "arn:aws:iam::636579479082:mfa/VijaiMFADevice" --authentication-code1 12345 --authentication-code2 12345 
+
+
+~~~ 
 
