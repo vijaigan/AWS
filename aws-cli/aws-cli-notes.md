@@ -221,3 +221,24 @@ vijai@vijai-lx:~/AWS/Clients/vijaiinXXXX$ aws iam enable-mfa-device --user-name 
 
 ~~~ 
 
+### AWS IAM Policy udpate 
+
+~~~shell 
+
+vijai@vijai-lx:~$ #  aws iam update-account-password-policy --minimum-password-length 10 --require-numbers --require-uppercase-characters --require-lowercase-characters --allow-users-to-change-password --max-password-age 45 
+
+vijai@vijai-lx:~$ aws iam get-account-password-policy --output json 
+{
+    "PasswordPolicy": {
+        "AllowUsersToChangePassword": true, 
+        "RequireLowercaseCharacters": true, 
+        "RequireUppercaseCharacters": true, 
+        "MinimumPasswordLength": 10, 
+        "RequireNumbers": true, 
+        "RequireSymbols": false, 
+        "MaxPasswordAge": 45, 
+        "ExpirePasswords": true
+    }
+}
+
+~~~ 
