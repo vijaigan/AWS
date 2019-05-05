@@ -33,7 +33,11 @@
 - [ free templates for AWS CF](https://templates.cloudonaut.io/en/stable/) 
 - https://cloudonaut.io/templates-for-aws-cloudformation/  
 - https://github.com/widdix/aws-cf-templates   
-
+- [Stelligent CF templates ](https://github.com/stelligent/cloudformation_templates)
 
 ### *AWS NUKE*
 - [ https://github.com/rebuy-de/aws-nuke ](https://github.com/rebuy-de/aws-nuke) 
+
+
+### AWS MFA 
+- [ AWS Cli MFA enabling ]( https://typicalrunt.me/2018/05/26/enabling-an-aws-iam-mfa-via-cli/ ) 
